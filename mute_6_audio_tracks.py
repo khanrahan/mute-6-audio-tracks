@@ -28,10 +28,10 @@ To Install:
 
 import flame
 
-__title__ = 'Mute 6 Audio Tracks'
-__version_info__ = (0, 1, 1)
-__version__ = '.'.join([str(num) for num in __version_info__])
-__title_version__ = f'{__title__} v{__version__}'
+TITLE = 'Mute 6 Audio Tracks'
+VERSION_INFO = (0, 1, 1)
+VERSION = '.'.join([str(num) for num in VERSION_INFO])
+TITLE_VERSION = f'{TITLE} v{VERSION}'
 
 MESSAGE_PREFIX = '[PYTHON HOOK]'
 
@@ -43,7 +43,7 @@ def message(string):
 
 def mute_6_tracks(selection):
     """Loop through selection and mute the first 6 audio tracks."""
-    message(__title_version__)
+    message(TITLE_VERSION)
     message(f'Script called from {__file__}')
 
     for sequence in selection:
