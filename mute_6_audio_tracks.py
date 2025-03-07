@@ -26,8 +26,6 @@ To Install:
     /opt/Autodesk/user/<user name>/python
 """
 
-from __future__ import print_function
-
 __title__ = "Mute 6 Audio Tracks"
 __version_info__ = (0, 1, 1)
 __version__ = ".".join([str(num) for num in __version_info__])
