@@ -26,6 +26,9 @@ To Install:
     /opt/Autodesk/user/<user name>/python
 """
 
+import flame
+
+
 __title__ = 'Mute 6 Audio Tracks'
 __version_info__ = (0, 1, 1)
 __version__ = '.'.join([str(num) for num in __version_info__])
@@ -62,12 +65,7 @@ def mute_6_tracks(selection):
 
 def scope_clip(selection):
 
-    import flame
-
-    for item in selection:
-        if isinstance(item, flame.PySequence):
-            return True
-    return False
+    return all(isinstance(item, flame.PySequence) for item in selection)
 
 
 def get_media_panel_custom_ui_actions():
