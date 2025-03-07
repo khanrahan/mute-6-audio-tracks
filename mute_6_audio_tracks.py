@@ -32,7 +32,7 @@ import flame
 __title__ = 'Mute 6 Audio Tracks'
 __version_info__ = (0, 1, 1)
 __version__ = '.'.join([str(num) for num in __version_info__])
-__title_version__ = '{} v{}'.format(__title__, __version__)
+__title_version__ = f'{__title__} v{__version__}'
 
 MESSAGE_PREFIX = '[PYTHON HOOK]'
 
@@ -45,7 +45,7 @@ def message(string):
 def mute_6_tracks(selection):
     """Loop through selection and mute the first 6 audio tracks."""
     message(__title_version__)
-    message('Script called from {}'.format(__file__))
+    message(f'Script called from {__file__}')
 
     for sequence in selection:
         for x in range(6):
