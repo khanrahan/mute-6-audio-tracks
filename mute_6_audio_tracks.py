@@ -26,24 +26,24 @@ To Install:
     /opt/Autodesk/user/<user name>/python
 """
 
-__title__ = "Mute 6 Audio Tracks"
+__title__ = 'Mute 6 Audio Tracks'
 __version_info__ = (0, 1, 1)
-__version__ = ".".join([str(num) for num in __version_info__])
-__title_version__ = "{} v{}".format(__title__, __version__)
+__version__ = '.'.join([str(num) for num in __version_info__])
+__title_version__ = '{} v{}'.format(__title__, __version__)
 
-MESSAGE_PREFIX = "[PYTHON HOOK]"
+MESSAGE_PREFIX = '[PYTHON HOOK]'
 
 
 def message(string):
     """Print message to shell window and append global MESSAGE_PREFIX."""
 
-    print(" ".join([MESSAGE_PREFIX, string]))
+    print(' '.join([MESSAGE_PREFIX, string]))
 
 
 def mute_6_tracks(selection):
 
     message(__title_version__)
-    message("Script called from {}".format(__file__))
+    message('Script called from {}'.format(__file__))
 
     for sequence in selection:
         for x in range(6):
@@ -57,7 +57,7 @@ def mute_6_tracks(selection):
             except IndexError:
                 pass
 
-    message("Done!")
+    message('Done!')
 
 
 def scope_clip(selection):
@@ -72,9 +72,9 @@ def scope_clip(selection):
 
 def get_media_panel_custom_ui_actions():
 
-    return [{'name': "Mute...",
-             'actions': [{'name': "Toggle Audio Tracks 1-6",
+    return [{'name': 'Mute...',
+             'actions': [{'name': 'Toggle Audio Tracks 1-6',
                           'isVisible': scope_clip,
                           'execute': mute_6_tracks,
-                          'minimumVersion': "2020.3.1"}]
+                          'minimumVersion': '2020.3.1'}]
             }]
