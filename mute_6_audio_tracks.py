@@ -28,7 +28,6 @@ To Install:
 
 import flame
 
-
 __title__ = 'Mute 6 Audio Tracks'
 __version_info__ = (0, 1, 1)
 __version__ = '.'.join([str(num) for num in __version_info__])
