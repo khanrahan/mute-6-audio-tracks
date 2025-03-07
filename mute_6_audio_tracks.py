@@ -39,12 +39,11 @@ MESSAGE_PREFIX = '[PYTHON HOOK]'
 
 def message(string):
     """Print message to shell window and append global MESSAGE_PREFIX."""
-
     print(' '.join([MESSAGE_PREFIX, string]))
 
 
 def mute_6_tracks(selection):
-
+    """Loop through selection and mute the first 6 audio tracks."""
     message(__title_version__)
     message('Script called from {}'.format(__file__))
 
@@ -64,12 +63,12 @@ def mute_6_tracks(selection):
 
 
 def scope_clip(selection):
-
+    """Check for only PySequences selected."""
     return all(isinstance(item, flame.PySequence) for item in selection)
 
 
 def get_media_panel_custom_ui_actions():
-
+    """Python hook to add custom right click menu."""
     return [{'name': 'Mute...',
              'actions': [{'name': 'Toggle Audio Tracks 1-6',
                           'isVisible': scope_clip,
