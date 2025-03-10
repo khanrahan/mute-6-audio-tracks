@@ -72,5 +72,5 @@ def get_media_panel_custom_ui_actions():
              'actions': [{'name': 'Toggle Audio Tracks 1-6',
                           'isVisible': scope_clip,
                           'execute': mute_6_tracks,
-                          'minimumVersion': '2020.3.1'}]
+                          'minimumVersion': '2022.0.0.0'}]
             }]
