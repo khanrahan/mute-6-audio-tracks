@@ -57,12 +57,11 @@ def mute_6_tracks(selection):
     for sequence in selection:
         for x in range(6):
             try:
-                mute_status = sequence.audio_tracks[x].mute
-                if not mute_status:
-                    sequence.audio_tracks[x].mute = True
-                    continue
-                if mute_status:
-                    sequence.audio_tracks[x].mute = False
+                mute = sequence.audio_tracks[x].mute.get_value()
+                if not mute:
+                    sequence.audio_tracks[x].mute.set_value(True)
+                if mute:
+                    sequence.audio_tracks[x].mute.set_value(False)
             except IndexError:
                 pass
 
