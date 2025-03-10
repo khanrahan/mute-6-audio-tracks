@@ -2,7 +2,7 @@
 Script Name: Mute 6 Audio Tracks
 Written By: Kieran Hanrahan
 
-Script Version: 0.1.1
+Script Version: 1.0.0
 Flame Version: 2022
 
 URL: http://github.com/khanrahan/mute-6-audio-tracks
@@ -37,7 +37,7 @@ To Install:
 import flame
 
 TITLE = 'Mute 6 Audio Tracks'
-VERSION_INFO = (0, 1, 1)
+VERSION_INFO = (1, 0, 0)
 VERSION = '.'.join([str(num) for num in VERSION_INFO])
 TITLE_VERSION = f'{TITLE} v{VERSION}'
 
