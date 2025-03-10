@@ -1,9 +1,14 @@
 """
-Mute 6 Audio Tracks
+Script Name: Mute 6 Audio Tracks
+Written By: Kieran Hanrahan
 
-URL:
+Script Version: 0.1.1
+Flame Version: 2022
 
-    http://github.com/khanrahan/mute-6-audio-tracks
+URL: http://github.com/khanrahan/mute-6-audio-tracks
+
+Creation Date: 11.23.22
+Update Date: 03.10.25
 
 Description:
 
@@ -20,10 +25,13 @@ Menus:
 To Install:
 
     For all users, copy this file to:
-    /opt/Autodesk/shared/python
+    /opt/Autodesk/shared/python/
 
-    For a specific user, copy this file to:
-    /opt/Autodesk/user/<user name>/python
+    For a specific user on Linux, copy this file to:
+    /home/<user_name>/flame/python/
+
+    For a specific user on Mac, copy this file to:
+    /Users/<user_name>/Library/Preferences/Autodesk/flame/python/
 """
 
 import flame
