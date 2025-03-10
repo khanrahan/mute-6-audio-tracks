@@ -41,7 +41,7 @@ VERSION_INFO = (0, 1, 1)
 VERSION = '.'.join([str(num) for num in VERSION_INFO])
 TITLE_VERSION = f'{TITLE} v{VERSION}'
 
-MESSAGE_PREFIX = '[PYTHON HOOK]'
+MESSAGE_PREFIX = '[PYTHON]'
 
 
 def message(string):
