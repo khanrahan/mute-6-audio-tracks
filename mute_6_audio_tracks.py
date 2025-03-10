@@ -1,9 +1,14 @@
 """
-Mute 6 Audio Tracks
+Script Name: Mute 6 Audio Tracks
+Written By: Kieran Hanrahan
 
-URL:
+Script Version: 1.0.0
+Flame Version: 2022
 
-    http://github.com/khanrahan/mute-6-audio-tracks
+URL: http://github.com/khanrahan/mute-6-audio-tracks
+
+Creation Date: 11.23.22
+Update Date: 03.10.25
 
 Description:
 
@@ -20,63 +25,59 @@ Menus:
 To Install:
 
     For all users, copy this file to:
-    /opt/Autodesk/shared/python
+    /opt/Autodesk/shared/python/
 
-    For a specific user, copy this file to:
-    /opt/Autodesk/user/<user name>/python
+    For a specific user on Linux, copy this file to:
+    /home/<user_name>/flame/python/
+
+    For a specific user on Mac, copy this file to:
+    /Users/<user_name>/Library/Preferences/Autodesk/flame/python/
 """
 
-from __future__ import print_function
+import flame
 
-__title__ = "Mute 6 Audio Tracks"
-__version_info__ = (0, 1, 1)
-__version__ = ".".join([str(num) for num in __version_info__])
-__title_version__ = "{} v{}".format(__title__, __version__)
+TITLE = 'Mute 6 Audio Tracks'
+VERSION_INFO = (1, 0, 0)
+VERSION = '.'.join([str(num) for num in VERSION_INFO])
+TITLE_VERSION = f'{TITLE} v{VERSION}'
 
-MESSAGE_PREFIX = "[PYTHON HOOK]"
+MESSAGE_PREFIX = '[PYTHON]'
 
 
 def message(string):
     """Print message to shell window and append global MESSAGE_PREFIX."""
-
-    print(" ".join([MESSAGE_PREFIX, string]))
+    print(' '.join([MESSAGE_PREFIX, string]))
 
 
 def mute_6_tracks(selection):
-
-    message(__title_version__)
-    message("Script called from {}".format(__file__))
+    """Loop through selection and mute the first 6 audio tracks."""
+    message(TITLE_VERSION)
+    message(f'Script called from {__file__}')
 
     for sequence in selection:
         for x in range(6):
             try:
-                mute_status = sequence.audio_tracks[x].mute
-                if mute_status == False:
-                    sequence.audio_tracks[x].mute = True
-                    continue
-                if mute_status == True:
-                    sequence.audio_tracks[x].mute = False
+                mute = sequence.audio_tracks[x].mute.get_value()
+                if not mute:
+                    sequence.audio_tracks[x].mute.set_value(True)
+                if mute:
+                    sequence.audio_tracks[x].mute.set_value(False)
             except IndexError:
                 pass
 
-    message("Done!")
+    message('Done!')
 
 
 def scope_clip(selection):
-
-    import flame
-
-    for item in selection:
-        if isinstance(item, flame.PySequence):
-            return True
-    return False
+    """Check for only PySequences selected."""
+    return all(isinstance(item, flame.PySequence) for item in selection)
 
 
 def get_media_panel_custom_ui_actions():
-
-    return [{'name': "Mute...",
-             'actions': [{'name': "Toggle Audio Tracks 1-6",
+    """Python hook to add custom right click menu."""
+    return [{'name': 'Mute...',
+             'actions': [{'name': 'Toggle Audio Tracks 1-6',
                           'isVisible': scope_clip,
                           'execute': mute_6_tracks,
-                          'minimumVersion': "2020.3.1"}]
+                          'minimumVersion': '2022.0.0.0'}]
             }]
